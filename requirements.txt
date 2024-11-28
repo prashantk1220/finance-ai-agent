@@ -1,0 +1,15 @@
+yfinance
+psycopg2-binary
+pymongo
+fastapi
+uvicorn
+langchain
+gradio
+sqlalchemy
+pandas
+matplotlib
+python-dotenv
+langchain-community
+openai
+langchain_openai
+langgraph
