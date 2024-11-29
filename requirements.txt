@@ -9,7 +9,8 @@ sqlalchemy
 pandas
 matplotlib
 python-dotenv
-langchain-community
-openai
-langchain_openai
-langgraph
+langchain_community
+langchain_groq
+
+# Tests
+pytest
