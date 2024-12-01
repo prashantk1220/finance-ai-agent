@@ -6,13 +6,22 @@ It utilses LLM model to answer queries on financial data analysis.
 
 ## Table of Contents
 
+- [System Architecture](#system-architecture)
 - [Installation](#installation)
 - [Usage](#usage)
-- [System Architecture](#system-architecture)
 - [UI Screenshot](#ui-screenshot)
+- [Trade-offs Made](#trade-offs)
 - [Makefile Commands](#makefile-commands)
 
 ---
+
+
+## System Architecture
+
+Below is the high-level system architecture of the project. For more details, refer to the [System Architecture Document](docs/component-diagram.pdf).
+
+![System Architecture](docs/system-architecture-thumbnail.png)
+
 
 ## Installation
 
@@ -53,13 +62,6 @@ After running `make ui`, the Gradio UI will be available at:
 Use the UI for your queries. 
 
 
-## System Architecture
-
-Below is the high-level system architecture of the project. For more details, refer to the [System Architecture Document](docs/component-diagram.pdf).
-
-![System Architecture](docs/system-architecture-thumbnail.png)
-
-
 ## UI Screenshots
 
 Here are some working example screenshots of the Gradio-powered UI:
@@ -77,8 +79,23 @@ The `Makefile` simplifies common tasks for this project. Below is a list of the 
 | `make install`  | Install all required dependencies.                    |
 | `make test`     | Run the test suite using `pytest`.                    |
 | `make run`      | Launch the FastAPI application.                       |
+| `make all`      | Runs all the above cmds in sequence.                                  |
 | `make ui`       | Start the Gradio UI.                                  |
 | `make clean`    | Remove Python cache files and test artifacts.         |
+| `make help`     | Display the commands available.         |
+
+
+
+Trade-offs Made
+----------------
+
+- Database schema was chosed based on one table for all the stock data, vs multiple tables per ticker.
+ This design helps manage queries and table efficiently, while scaling can be attained by partitioning the table based on tickers column as the data grows.
+
+- LLM Agent queries the database directly than using API endpoints, which makes it tightly coupled system,
+but it improves the response time by eliminating the network latency. 
+Also this adds scope for introducing SQLQueryBased tools for the Agent.
+ 
 
 
 Further Improvements 
@@ -87,4 +104,5 @@ Further Improvements
 - LLM Agent Prompts can be experimented for better results
 - Additional Tools can be configured for the AI Agent
 - Robust Integration tests
-- The API can utilise caching for frequenetly queried data
+- The API can utilised for caching of frequently queried data
+- More information in [Improvements-doc](docs/improvements.txt)

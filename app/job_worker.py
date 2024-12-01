@@ -1,4 +1,4 @@
-"""Module to be scheduled as cron job or APScheduler to run periodically to fetch data"""
+"""Module to be scheduled as cron job or APScheduler to run periodically to fetch the data"""
 from datetime import datetime
 
 import yfinance as yf
@@ -41,12 +41,3 @@ if __name__ == '__main__':
     with get_db() as session:
         for ticker in tickers:
             fetch_and_store_stock_data(ticker, session)
-
-    # test
-    # with get_db() as session:
-    #     ticker = 'AAPL'
-    #     stock_data = get_stock_data_by_ticker(ticker)
-    #     for data in stock_data:
-    #         print(
-    #             f"Data ID: {data.data_id}, Ticker: {data.ticker}, Date: {data.trade_date},
-    #             Open Price: {data.open_price}")

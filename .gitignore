@@ -1,6 +1,6 @@
-.venv/
+venv/
 .pytest_cache/
 .idea/
 __pycache__/
-
+.env
 
