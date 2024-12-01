@@ -68,6 +68,9 @@ Here are some working example screenshots of the Gradio-powered UI:
 
 ![User Interface](docs/ui-screenshot.png) 
 
+New Screenshot
+![User Interface](docs/ui-screenshot-2.png) 
+
 
 Makefile Commands 
 -----------------
@@ -89,8 +92,9 @@ The `Makefile` simplifies common tasks for this project. Below is a list of the 
 Trade-offs Made
 ----------------
 
-- Database schema was chosed based on one table for all the stock data, vs multiple tables per ticker.
- This design helps manage queries and table efficiently, while scaling can be attained by partitioning the table based on tickers column as the data grows.
+- The database schema was designed to consolidate all stock data into a single table, vs using multiple tables for each ticker.
+This approach improves query management and table maintenance.
+And As the volume of data increases, scalability is achieved by partitioning the table based on the ticker column.
 
 - LLM Agent queries the database directly than using API endpoints, which makes it tightly coupled system,
 but it improves the response time by eliminating the network latency. 
@@ -105,4 +109,4 @@ Further Improvements
 - Additional Tools can be configured for the AI Agent
 - Robust Integration tests
 - The API can utilised for caching of frequently queried data
-- More information in [Improvements-doc](docs/improvements.txt)
+- More information in [Improvements-doc](docs/Improvements.md)
