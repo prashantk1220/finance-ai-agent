@@ -33,12 +33,12 @@ class LLMAgent:
             Tool(
                 name="Stock Data",
                 func=lambda ticker: get_stocks_data(ticker),
-                description="Get basic stock analysis.",
+                description="Get stock history.",
             ),
             Tool(
                 name="Stock Analysis",
                 func=lambda ticker, analysis_type=None: stock_analysis(ticker, analysis_type),
-                description="Get basic stock analysis.",
+                description="Get stock data analysis.",
             ),
         ]
 

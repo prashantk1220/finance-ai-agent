@@ -80,4 +80,9 @@ def get_stock_data_by_ticker(ticker: str):
         session.close()
 
 
-# ans = get_stock_data_by_ticker("AAPL")
+records = get_stock_data_by_ticker("AMZN")
+
+i = 0
+for record in records:
+    print(f"ticker: {record.ticker}, date: {record.trade_date}, high-price: {record.high_price}")
+    break

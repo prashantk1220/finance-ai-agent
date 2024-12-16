@@ -15,4 +15,5 @@ db_table = env_vars.get('DB_TABLE', 'stock_data')
 
 DATABASE_URL = f"postgresql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}"
 
+
 # Otherwise Fall back to os.environ

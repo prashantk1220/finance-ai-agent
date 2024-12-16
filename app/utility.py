@@ -60,4 +60,8 @@ def run_optimized_query_with_error_handling(ticker: str):
         return f"Error running query: {e}"
 
 
-query_tool = QuerySQLDataBaseTool(db=db, query_func=run_optimized_query_with_error_handling)
+# query_tool = QuerySQLDataBaseTool(db=db, query_func=run_optimized_query_with_error_handling)
+
+
+res = run_optimized_query_with_error_handling('AMZN')
+print(res)
